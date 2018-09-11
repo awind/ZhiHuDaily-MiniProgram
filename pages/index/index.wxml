@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" catchtap="onItemClick">
+    <block wx:for="{{topStories}}" wx:key="{{item.id}}">
+      <swiper-item>
+        <image data-id="{{item.id}}" model="scaleToFill" class="slide-image" src="{{item.image}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="items-container">
+    <view class='items' wx:for="{{stories}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
+    <text class='item' bind:tap="tapNewsItem" data-newsId="{{item.id}}">{{item.title}}</text>
+  </view>
+  </view>
+</view>
