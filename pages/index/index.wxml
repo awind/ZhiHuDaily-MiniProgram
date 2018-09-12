@@ -8,9 +8,12 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class="items-container">
-    <view class='items' wx:for="{{stories}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
-    <text class='item' bind:tap="tapNewsItem" data-newsId="{{item.id}}">{{item.title}}</text>
-  </view>
-  </view>
+
+    <block wx:for="{{stories}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
+        <view class="items">
+            <text bind:tap="tapNewsItem" data-newsId="{{item.id}}">{{item.title}}</text>
+            <image model="scaleToFill" src="{{item.images[0]}}"></image>
+        </view>
+    </block>
+
 </view>

@@ -13,7 +13,6 @@ Page({
     duration: 1000,
   },
   onLoad: function() {
-    console.log('onLoad')
     const that = this
     wx.request({
       url: 'https://news-at.zhihu.com/api/4/news/latest',
@@ -29,9 +28,33 @@ Page({
     })
   },
   onItemClick: function(event) {
-    console.log(event.target.dataset.id+"")
+    const detailID = event.target.dataset.id
+    wx.navigateTo({
+      url: '../detail/detail?id='+detailID,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   tapNewsItem: function(event) {
-    console.log(event.target.dataset.newsid+"")
-  }
+    const detailID = event.target.dataset.newsid
+    wx.navigateTo({
+      url: '../detail/detail?id='+detailID,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
 })

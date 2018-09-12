@@ -1,0 +1,10 @@
+<view class="container">
+
+<import src="../../wxParse/wxParse.wxml"/>
+
+<template is="wxParse" data="{{wxParseData:htmlData.nodes}}"/>
+<view class="header">
+    <image model="aspectFill" src="{{image}}"></image>
+</view>
+
+</view>

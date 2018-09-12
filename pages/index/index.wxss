@@ -11,37 +11,38 @@
   height: 100%;
 }
 
-.items-container {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin: auto;
-}
-
 .items {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
-  height: 120rpx;
-  margin: 0;
+  width: 80%;
+  height: 160rpx;
+  margin: auto;
   padding: 0;
 }
 
-.item {
-  display: block;
-  text-align: center;
-  font-size:30rpx;
+.items text {
+  flex: 6; 
+  text-align: left;
+  font-size: 32rpx;
   color:#000000;
-  line-height: 30rpx;
-  margin: 0;
+  line-height: 40rpx;
+  margin: auto;
   padding: 0;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
+.items image {
+  flex: 2;
+  padding: 0;
+  margin: 0;
+  width: 80rpx;
+  height: 100rpx;
+}
+
 .line{
-  width:100%;
-  height:2rpx;
-  background:#aaa;
+  width: 100%;
+  height: 2rpx;
+  background: #aaa;
 }
