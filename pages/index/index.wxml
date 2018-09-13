@@ -1,19 +1,30 @@
-<!--index.wxml-->
 <view class="container">
+
+  <!-- image slider -->
   <swiper class="swiper" indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" catchtap="onItemClick">
     <block wx:for="{{topStories}}" wx:key="{{item.id}}">
       <swiper-item>
-        <image data-id="{{item.id}}" model="scaleToFill" class="slide-image" src="{{item.image}}"/>
+        <image data-id="{{item.id}}" mode="scaleToFill" class="slide-image" src="{{item.image}}"/>
       </swiper-item>
     </block>
   </swiper>
 
-    <block wx:for="{{stories}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
+  <!-- list view -->
+  <block wx:for="{{keys}}" wx:for-index="index" wx:for-item="key" wx:key="key">
+    <view>{{key}}</view>
+    <block wx:for="{{stories[key]}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
         <view class="items">
             <text bind:tap="tapNewsItem" data-newsId="{{item.id}}">{{item.title}}</text>
-            <image model="scaleToFill" src="{{item.images[0]}}"></image>
+            <image mode="scaleToFill" src="{{item.images[0]}}"></image>
         </view>
     </block>
+  </block>
+
+  <!-- load more -->
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+  </view>
 
 </view>

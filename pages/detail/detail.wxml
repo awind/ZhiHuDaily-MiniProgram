@@ -4,7 +4,7 @@
 
 <template is="wxParse" data="{{wxParseData:htmlData.nodes}}"/>
 <view class="header">
-    <image model="scaleToFill" src="{{image}}"></image>
+    <image mode='aspectFill' src="{{image}}"></image>
 </view>
 
 </view>
