@@ -4,11 +4,47 @@
   height: 48vh;
 }
 
+swiper-item view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .slide-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+.img-title {
+  position: absolute;
+  font-size: 36rpx;
+  color:#ffffff;
+  bottom: 80rpx;
+  left: 28rpx;
+  right: 28rpx;
+}
+
+.overlay-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0%, 0%, 0%, 0.2);
+}
+
+.section-header {
+  width: 80%;
+  margin: auto;
+  padding: 0;
+  color: darkgrey;
 }
 
 .items {

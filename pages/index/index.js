@@ -17,6 +17,7 @@ Page({
   },
   onLoad: function() {
     const today = date.getCurrentMonthFirst()
+    console.log(today)
     const that = this
     wx.request({
       url: 'https://news-at.zhihu.com/api/4/news/latest',
@@ -39,21 +40,21 @@ Page({
       isHideLoadMore: false,
     })
     const that = this
-    const latest = Object.keys(this.data.stories).sort()[0]
-    const before = date.dateBefore(latest, 1)
-    console.log(before)
+    const latest = this.data.keys.sort()[0]
+    const beforeDate = date.dateBefore(latest, 1)
+    const before = beforeDate.replace(/-/g, '')
     wx.request({
-      url: 'https://news-at.zhihu.com/api/4/news/before/20180913',
+      url: 'https://news-at.zhihu.com/api/4/news/before/' + before,
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function(res){
         // success
         const oldData = that.data.stories
         that.setData({
-          keys: Object.keys(oldData).concat(before),
+          keys: Object.keys(oldData).concat(beforeDate),
           stories: {
             ...oldData,
-            [before]: res.data.stories,
+            [beforeDate]: res.data.stories,
           },
           isHideLoadMore: true,
         })
@@ -84,7 +85,7 @@ Page({
   tapNewsItem: function(event) {
     const detailID = event.target.dataset.newsid
     wx.navigateTo({
-      url: '../detail/detail?id='+detailID,
+      url: '../detail/detail?id=' + detailID,
       success: function(res){
         // success
       },

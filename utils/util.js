@@ -15,13 +15,13 @@ const formatNumber = n => {
 function dateBefore(dates, before) {
   let date = new Date(dates)
   date.setDate(date.getDate() - before)
-  return date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth()+1) + "-" + (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate())
+  return date.getFullYear() + "-" + formatNumber(date.getMonth() + 1) + "-" + formatNumber(date.getDate())
 }
 
 //获取当前时间
 function getCurrentMonthFirst() {
   var date = new Date()
-  var todate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth()+1) + "-" + (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate())
+  var todate = date.getFullYear() + "-" + formatNumber(date.getMonth() + 1) + "-" + formatNumber(date.getDate())
   return todate
 }
 

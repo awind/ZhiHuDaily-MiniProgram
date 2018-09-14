@@ -5,14 +5,18 @@
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" catchtap="onItemClick">
     <block wx:for="{{topStories}}" wx:key="{{item.id}}">
       <swiper-item>
-        <image data-id="{{item.id}}" mode="scaleToFill" class="slide-image" src="{{item.image}}"/>
+        <view>
+          <image data-id="{{item.id}}" mode="scaleToFill" class="slide-image" src="{{item.image}}"/>
+          <view class="overlay-layer"></view>
+          <text class="img-title">{{item.title}}</text>
+        </view>
       </swiper-item>
     </block>
   </swiper>
 
   <!-- list view -->
   <block wx:for="{{keys}}" wx:for-index="index" wx:for-item="key" wx:key="key">
-    <view>{{key}}</view>
+    <view class="section-header">{{key}}</view>
     <block wx:for="{{stories[key]}}" wx:for-index="idx" wx:for-item="item" wx:key="item.id">
         <view class="items">
             <text bind:tap="tapNewsItem" data-newsId="{{item.id}}">{{item.title}}</text>
