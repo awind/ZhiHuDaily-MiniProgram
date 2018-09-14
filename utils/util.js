@@ -1,5 +1,5 @@
 const formatTime = date => {
-  const showDay = new Array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六')
+  const showDay = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
   const month = date.getMonth() + 1
   const day = date.getDate()
   const weekDay = date.getDay()
@@ -23,17 +23,6 @@ function getCurrentMonthFirst() {
   var date = new Date()
   var todate = date.getFullYear() + "-" + formatNumber(date.getMonth() + 1) + "-" + formatNumber(date.getDate())
   return todate
-}
-
-//获取d当前时间多少天后的日期和对应星期
-//todate默认参数是当前日期，可以传入对应时间
-function getDates(days,todate=getCurrentMonthFirst()) {
-  var dateArry = []
-  for (var i = 0; i < days; i++) {
-    const dateObj = dateBefore(todate, i)
-    dateArry.push(dateObj)
-  }
-  return dateArry
 }
 
 module.exports = {
