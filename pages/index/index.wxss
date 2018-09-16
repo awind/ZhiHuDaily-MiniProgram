@@ -41,7 +41,9 @@ swiper-item view {
 
 .section-header {
   width: 80%;
+  height: 60rpx;
   margin: auto;
+  vertical-align: middle;
   padding: 0;
   color: darkgrey;
 }
